@@ -1,5 +1,9 @@
 name: Build_and_run_tests
-on: workflow_dispatch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 jobs:
   BuildAndTest:
     runs-on: windows-latest
