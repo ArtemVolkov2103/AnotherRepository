@@ -1,0 +1,14 @@
+name: Build_and_run_tests
+on: workflow_dispatch
+jobs:
+  BuildAndTest:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Restore project
+        run: dotnet restore PowerCollections/PowerCollections.csproj 
+      - name: Build project
+        run: dotnet build PowerCollections/PowerCollections.csproj 
+      - name: Test project
+        run: dotnet test PowerCollections.Tests/PowerCollections.Tests.csproj --no-restore
