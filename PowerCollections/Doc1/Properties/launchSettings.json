@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Doc1": {
+      "commandName": "Executable",
+      "executablePath": "$(SHFBROOT)\\Tools\\SandcastleBuilderGUI.exe"
+    }
+  }
+}
