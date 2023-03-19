@@ -1,4 +1,4 @@
-name: Build_and_run_tests
+name: Build_and_run_tests_
 on:
   push:
     branches: [ "main" ]
