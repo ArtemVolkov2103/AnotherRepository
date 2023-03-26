@@ -7,8 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerCollections", "PowerCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerCollections.Tests", "PowerCollections.Tests\PowerCollections.Tests.csproj", "{3500C460-951F-45C6-AC29-77B5F9128015}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doc1", "Doc1\Doc1.csproj", "{0AD46B97-8FB1-42E0-A9C8-C0369A84C3A5}"
-EndProject
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{B7549800-939E-40A1-A17D-E9FCFC768B9D}"
 	ProjectSection(SolutionItems) = preProject
 		create_delivery_package.build = create_delivery_package.build
