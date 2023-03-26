@@ -1,0 +1,27 @@
+name: Nuget_Release_Publication
+on: workflow_dispatch
+jobs:
+  nugetReleasePublication:
+    runs-on: windows-latest 
+    permissions:
+      packages: write
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Dotnet pack
+      run: dotnet pack PowerCollections --configuration Release
+    - name: Dotnet nuget push
+      run: dotnet nuget push PowerCollections\bin\Release\*.nupkg ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/ArtemVolkov2103/index.json --skip-duplicate
+    - name: Get version prefix
+      id: getVersionPrefix
+      uses: mavrosxristoforos/get-xml-info@1.1.1
+      with: 
+        xml-file: 'PowerCollections/PowerCollections.csproj'
+        xpath: '//VersionPrefix'
+    - name: Release nuget package
+      uses: ncipollo/release-action@v1.12.0
+      with: 
+        artifacts: 'PowerCollections\bin\Debug\*${{ steps.getVersionPrefix.outputs.info }}.nupkg'
+        tag: 'v${{ steps.getVersionPrefix.outputs.info }}'
+        token: ${{ secrets.GITHUB_TOKEN }}
